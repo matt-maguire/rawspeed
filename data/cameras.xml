@@ -1498,7 +1498,6 @@
 			<Hint name="wb_offset" value="85"/>
 		</Hints>
 	</Camera>
-	</Camera>
 	<Camera make="Canon" model="Canon EOS M50">
 		<ID make="Canon" model="EOS M50">Canon EOS M50</ID>
 		<CFA width="2" height="2">
@@ -1513,6 +1512,9 @@
 		<Sensor black="511" white="14338" iso_list="200 250"/>
 		<Sensor black="2050" white="10749" iso_list="320 640 1250 2500 5000"/>
 		<Sensor black="2048" white="14338" iso_list="16000 20000"/>
+		<Aliases>
+			<Alias id="EOS KISS M">Canon EOS KISS M</Alias>
+		</Aliases>
 		<Hints>
 			<Hint name="wb_offset" value="71"/>
 		</Hints>
