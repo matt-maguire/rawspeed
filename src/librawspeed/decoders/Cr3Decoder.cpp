@@ -563,6 +563,14 @@ void Cr3Decoder::decodeMetaDataInternal(const CameraMetaData* meta) {
     iso = canonBox->CMT2()
               ->mRootIFD0->getEntryRecursive(ISOSPEEDRATINGS)
               ->getU32();
+  if(65535 == iso) {
+    // ISOSPEEDRATINGS is a SHORT EXIF value. For larger values, we have to look
+    // at RECOMMENDED_EXPOSURE_INDEX (maybe Canon specific).
+    if (canonBox->CMT2()->mRootIFD0->hasEntryRecursive(RECOMMENDED_EXPOSURE_INDEX))
+      iso = canonBox->CMT2()
+              ->mRootIFD0->getEntryRecursive(RECOMMENDED_EXPOSURE_INDEX)
+              ->getU32();
+  }
 
   // Big raw image is always in track 4
   assert(rootBox->moov()->tracks.size() >= 4);
